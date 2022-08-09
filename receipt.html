@@ -1,0 +1,107 @@
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="receipt.css">
+        <!-- <script src="jquery-3.6.0.min.js"></script> -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <link rel="stylesheet" href="receipt.css">
+        <!-- <script src="location.js"></script> -->
+    </head>
+    <body>
+        <table class="body-wrap">
+    <tbody><tr>
+        <td></td>
+        <td class="container" width="600">
+            <div class="content">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td class="content-wrap aligncenter">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                    <td class="content-block">
+                                        <h2>Thanks for Booking, have a nice time</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        <table class="invoice">
+                                            <tbody><tr>
+                                                <td id="name"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Invoice </td>
+                                                                <td class="alignright" id="invoice"></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Movie</td>
+                                                                <td class="alignright" id="movie"></td>
+                                                            </tr>
+                                                        <tr>
+                                                            <td>Theater</td>
+                                                            <td class="alignright" id="theater"></td>
+                                                        </tr>
+                                                      
+                                                        <tr>
+                                                            <td>Seats</td>
+                                                            <td class="alignright" id="allSeatsVals"></td>
+                                                        </tr>
+                                                        <tr class="total">
+                                                            <td class="" width="75%">Total</td>
+                                                            <td class="" id="ticketCost"></td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+               </div>
+        </td>
+        <td></td>
+    </tr>
+</tbody></table>
+
+
+<script>
+
+window.onload = () => {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+  
+          let city = params.city
+          let movie = params.movie
+          let theater = params.theater
+          let movieDateAndTime = params.movieDateAndTime
+          let mobileNumber = params.mobileNumber
+          let allSeatsVals = params.allSeatsVals
+          let ticketCost = params.ticketCost    
+          let email = params.email
+          let name = params.name
+
+          document.getElementById('name').innerText = name
+          document.getElementById('theater').innerText = `${theater} , ${city}`
+          document.getElementById('movie').innerText = movie
+          document.getElementById('allSeatsVals').innerText = allSeatsVals
+          document.getElementById('invoice').innerText = Math.floor(Math.random() * 10000000);
+          document.getElementById('ticketCost').innerText = ticketCost
+        //   document.getElementById('name').innerText = name
+
+}
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="payment.css">
+    <!-- <script src="jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <!-- <script src="location.js"></script> -->
+
+</head>
+
+
+<body>
+
+    <table id="customers">
+        <tr>
+          <th>Select Payment Method</th>
+
+        </tr>
+        <tr  onclick="displayBlock('cards' , 'upi'); pay('none')" >
+          <td><button style="background:greenyellow; color: black;" id="cards-btn"> Credit / Debit </button> </td>
+          
+
+        </tr>
+        <tr onclick="displayBlock('upi' , 'cards')">
+          <td><button id="upi-btn" >UPI Payment</button></td>
+        </tr>
+      </table>
+
+
+    <div class="cv-cards" id="cards">
+        <div class="__card-no">
+            <input type="hidden" id="cardType" value="">
+            <input type="hidden" id="cardNo" value="">
+            <select id="cmbCardCat" style="display: none;">
+                <option value=""></option>
+                <option value="VISA">Visa</option>
+                <option value="MASTERCARD">Master Card</option>
+                <option value="AMEX">American Express</option>
+                <option value="MAESTRO">Maestro</option>
+                <option value="RUPAY">RuPay</option>
+                <option value="DINERS">Diners</option>
+            </select>
+            <div class="__name">Card Number</div>
+            <aside>
+                <input id="txtCardNo" class="card-no card-item" onpaste="return false;" oncontextmenu="return false;" type="text"
+                    placeholder="Enter Your Card Number" maxlength="25" autocomplete="cc-number">
+            </aside>
+        </div>
+        <!-- <div id="dInvalidCard" style="color: red; display: none;">You have entered an invalid card number!</div> -->
+        <div class="__card-name">
+            <aside>
+                <input id="txtCardName" class="card-item" placeholder="Name on the card" type="text" autocomplete="cc-name">
+            </aside>
+        </div>
+        <div class="__card-exdate">
+            <div class="__name">Expiry</div>
+                <input id="txtExpMonth" class="card-item-expiry" type="text" placeholder="MM" maxlength="2" autocomplete="cc-exp-month"> / <input id="txtExpYear" class="card-item-expiry" type="text" placeholder="YYYY" maxlength="4" autocomplete="cc-exp-year">
+          
+        </div>
+        <div id="dCVV" class="__card-cvv">
+            <div class="__name">CVV</div>
+            <aside class="cv-number">
+                <input class="card-item-cvv" id="txtCVV" type="password" placeholder="CVV" maxlength="3" autocomplete="cc-csc">
+            </aside>
+            <aside id="oPinCont" class="cv-zip" style="display: none;">
+                <input type="text" id="txtPin" placeholder="Pin Code" maxlength="10" autocomplete="postal-code">
+            </aside>
+        </div>
+        <span class="__card-img">
+            <img id="iCardImg" src="" alt="">
+        </span>
+    </div>
+
+   <div class="upi-payment" id="upi" style="display: none;">
+    <table class="upi-pay">
+        <tr>
+            <th>
+                <div onclick="pay('block')">
+                    <span style="width:60px;">
+                        <p class="__text" style="line-height:15px;max-width:170px;margin-top:12px;">Amazon Pay</p>
+                        <img class="_netbank" src="https://assets-in.bmscdn.com/paymentcms/amazonpayupi-v2.png" alt="Amazon" pay="" height="50px">
+                    </span>
+                  
+                </div>
+            </th>
+
+            <th>
+                <!-- <div onclick="pay.fnSetUPI(this, 'GOOGLEPAY', 'Google Pay', '|TYPE=UPI|UPITYPE=GOOGLEPAY|');" style="padding-top:3px;"> -->
+                    <div onclick="pay('block')">
+                    <span style="width:60px;">
+                        <p class="__text" style="line-height:15px;max-width:170px;margin-top:12px;">Google Pay</p>
+                        <img class="_netbank" src="https://assets-in-sit.bmscdn.com/paymentcms/googlepay_web.png" alt="Google" pay="" height="50px">
+                    </span>
+                  
+                    </div>
+            </th>
+
+            <th>
+                <!-- <div onclick="pay.fnSetUPI(this, 'PHONEPE', 'PhonePe', '|TYPE=UPI|UPITYPE=PHONEPE||');" style="padding-top:3px;"> -->
+                    <div onclick="pay('block')">
+                    <span style="width:60px;">
+                        <p class="__text" style="line-height:15px;max-width:170px;margin-top:12px;">Google Pay</p>
+                        <img class="_netbank" src="https://assets-in.bmscdn.com/paymentcms/phonepe_web.png" alt="PhonePe" pay="" height="50px">
+                    </span>
+                  
+                    </div>
+            </th>
+          
+        </tr>
+    </table>
+    
+    <div id="enter-upi" style="display:none ;">
+            <label for="upi-id">Enter Upi Id</label>
+            <input type="text" id="upi-id" name="upiId" id="">
+    </div>
+   </div>
+   
+    <div id="card-submit" onclick="proceedToPay('card-submit')">
+       <button class="button button3 details-submit-btn"> Proceed to Pay</button>
+    </div>
+
+    <div id="upi-submit" onclick="proceedToPay('upi-submit')" style="display: none;">
+       <button class="button button3 details-submit-btn"> Proceed to Pay</button>
+    </div>
+
+    <a href="/" id="submit-anchor"> </a>
+
+   <script>
+    function displayBlock(idToDisplay , idToHide){
+    
+        document.getElementById(idToDisplay).style.display = "block"
+        document.getElementById(idToHide).style.display = "none"
+
+        console.log("idToDisplay" , idToDisplay)
+
+        if(idToDisplay == 'cards'){
+        document.getElementById('card-submit').style.display="block"
+        document.getElementById('upi-submit').style.display="none"
+        
+        let btn = document.getElementById('cards-btn')
+        btn.style.background = "greenyellow"
+        btn.style.color = "black";
+
+        let btn2 = document.getElementById('upi-btn')
+        btn2.style.background = ""
+        btn2.style.color = "";
+        }else{
+
+        document.getElementById('card-submit').style.display="none"
+        document.getElementById('upi-submit').style.display="block"
+
+        let btn = document.getElementById('upi-btn')
+        btn.style.background = "greenyellow"
+        btn.style.color = "black";
+
+        let btn2 = document.getElementById('cards-btn')
+        btn2.style.background = ""
+        btn2.style.color = "";
+
+        }
+    }
+
+    function pay(display){
+        document.getElementById('enter-upi').style.display = display
+    }
+
+    function proceedToPay(elementId){
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+
+          let city = params.city
+          let movie = params.movie
+          let theater = params.theater
+          let movieDateAndTime = params.movieDateAndTime
+          let mobileNumber = params.mobileNumber
+          let allSeatsVals = params.allSeatsVals
+          let ticketCost = params.ticketCost    
+          let email = params.email
+          let name = params.name
+            
+          let submitAnchor = document.getElementsByTagName('body')[0].getElementsByTagName('a')[0]
+          submitAnchor.setAttribute("href" , `/receipt.html?city=${city}&movie=${movie}&theater=${theater}&movieDateAndTime=${movieDateAndTime}&email=${email}&mobileNumber=${mobileNumber}&allSeatsVals=${allSeatsVals}&ticketCost=${ticketCost}&name=${name}`)
+
+    
+        if(elementId == 'card-submit'){
+           let cardNo=document.getElementById("txtCardNo").value
+           let cardName=document.getElementById("txtCardName").value
+            let expiryMonth = document.getElementById('txtExpMonth').value
+            let expiryYear = document.getElementById('txtExpYear').value
+            let cvv =  document.getElementById('txtCVV').value
+            
+           if( checkCvv(cvv) && checkExpiry(expiryMonth , expiryYear) && checkCardNo(cardNo) && checkName(cardName)){
+            // alert("proceed with card")
+            submitAnchor.click()
+           }
+
+        }else{
+            let displayOfEnterUpi = document.getElementById('enter-upi').getAttribute('display')
+            console.log("displayOfEnterUpi" , window.getComputedStyle(document.querySelector('#enter-upi')).display)
+
+            if( window.getComputedStyle(document.querySelector('#enter-upi')).display == "none"){
+                alert('Please Select App for Payment')
+            }else{
+                let matchId = /[a-zA-Z0-9_]{3,}@[a-zA-Z]{3,}/;
+                console.log(matchId.test(document.getElementById("upi-id").value))
+                if(matchId.test(document.getElementById("upi-id").value)){
+                submitAnchor.click()
+                }else{
+                    alert("please enter correct UPI Id")
+                }
+            }
+            
+ 
+        }
+    }
+
+    function checkCvv(cvv){
+        if(cvv.length == 3){
+            return true
+        }else{
+            alert("please enter correct cvv")
+            return false
+        }
+    }
+
+    function checkExpiry(month , year){
+        let currentYear = new Date().getFullYear()
+        if(month <= 12 && month > 0 && year >= currentYear ){
+            // console.log("proceed")
+            return true
+        }else{
+            alert('please enter proper Expiry Details');
+            return false
+        }
+    }
+
+    function checkName(cardName){
+        let format = /[ `0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+        console.log("name", !format.test(cardName))
+        if(cardName.length && !format.test(cardName) ){
+            // alert("details correct")
+            return true
+        }else{
+            alert("Enter Correct Name")
+            return false
+        }
+    }
+
+   function checkCardNo(cardNo){
+    // 123456789012
+        let format = /[ `a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!" , typeof cardNo , cardNo)
+        console.log("------------->",!format.test(cardNo))
+
+        if(cardNo.length && !format.test(cardNo) && cardNo.length == 12 ){
+            // alert("details correct")
+            return true
+        }else{
+            alert("Enter Proper 12 Digit Card Number")
+            return false
+        }
+    }
+   </script>
+</body>
+
+</html>

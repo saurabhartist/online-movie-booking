@@ -1,0 +1,43 @@
+body{
+    background-color: #ff8c00;
+  }
+
+  .movie-img{
+      display: inline-block;
+      /* margin-top: 110px; */
+  }
+
+  .movie-name{
+      /* color: white; */
+      display: inline-block;
+      font-family: Roboto;
+      font-size: 36px;
+      font-weight: bold;
+      position: absolute;
+      
+  }
+
+  .new-html{
+      /* color: white; */
+      display: inline-flex;
+      font-size: 26px;
+  }
+
+  #container{
+  position: absolute;
+  text-align: center;
+  margin-left: 39%;
+  }
+
+
+  #movie{
+   text-align: center;
+  margin-right: 30%;   
+  }
+
+  #movie-name{
+  position: absolute;
+  text-align: center;
+  margin-left: 50%;
+  /* margin-top: 110px; */
+  }

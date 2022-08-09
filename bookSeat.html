@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bookseat.css">
+    <!-- <script src="jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="location.js"></script>
+
+</head>
+
+
+<body onload="onLoaderFunc()">
+    <center>
+    <h1 id="movie"></h1>
+    <div><span id="city" class="textColor"> </span> <span id="theater"> </span></div>
+    <hr>
+    <p class="textColor">VIP-Rs. 500.00</p>
+    <hr>
+    <div class="inputForm">
+    </center>
+        <center>
+
+            <form id="formElement">
+                <label for="email">email *:</label>
+                <input type="email" id="email" required><br><br>
+                <label for="phone"> Mobile Number * :</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required> <br><br>
+                <label for="Username"> Name *:</label>
+                <input type="text" id="Username" required> <br><br>
+                <label for="Numseats"> Number of Seats *: </label>
+                <input type="number" id="Numseats" required><br><br>
+                <button type="submit" onclick="takeData()"> Start Selecting</button>
+            </form>
+
+            <br /><br />
+
+        </center>
+    </div>
+
+
+    <div class="seatStructure">
+        <center>
+
+            <table id="seatsBlock"  class="textColor">
+                <p id="notification"></p>
+                <tr>
+                    <td colspan="14">
+                        <div class="screen">SCREEN</div>
+                    </td>
+                    <td rowspan="20">
+                        <div class="smallBox greenBox">Selected Seat</div> <br />
+                        <div class="smallBox redBox">Reserved Seat</div><br />
+                        <div class="smallBox emptyBox">Empty Seat</div><br />
+                    </td>
+
+                    <br />
+                </tr>
+
+                <tr class="textColor">
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td></td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+
+                <tr>
+                    <td>A</td>
+                    <td><input type="checkbox" class="seats" value="A1"></td>
+                    <td><input type="checkbox" class="seats" value="A2"></td>
+                    <td><input type="checkbox" class="seats" value="A3"></td>
+                    <td><input type="checkbox" class="seats" value="A4"></td>
+                    <td><input type="checkbox" class="seats" value="A5"></td>
+                    <td class="seatGap"></td>
+                    <td><input type="checkbox" class="seats" value="A6"></td>
+                    <td><input type="checkbox" class="seats" value="A7"></td>
+                    <td><input type="checkbox" class="seats" value="A8"></td>
+                    <td><input type="checkbox" class="seats" value="A9"></td>
+                    <td><input type="checkbox" class="seats" value="A10"></td>
+                    <td><input type="checkbox" class="seats" value="A11"></td>
+                    <td><input type="checkbox" class="seats" value="A12"></td>
+                </tr>
+
+                <tr>
+                    <td>B</td>
+                    <td><input type="checkbox" class="seats" value="B1"></td>
+                    <td><input type="checkbox" class="seats" value="B2"></td>
+                    <td><input type="checkbox" class="seats" value="B3"></td>
+                    <td><input type="checkbox" class="seats" value="B4"></td>
+                    <td><input type="checkbox" class="seats" value="B5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="B6"></td>
+                    <td><input type="checkbox" class="seats" value="B7"></td>
+                    <td><input type="checkbox" class="seats" value="B8"></td>
+                    <td><input type="checkbox" class="seats" value="B9"></td>
+                    <td><input type="checkbox" class="seats" value="B10"></td>
+                    <td><input type="checkbox" class="seats" value="B11"></td>
+                    <td><input type="checkbox" class="seats" value="B12"></td>
+                </tr>
+
+                <tr>
+                    <td>C</td>
+                    <td><input type="checkbox" class="seats" value="C1"></td>
+                    <td><input type="checkbox" class="seats" value="C2"></td>
+                    <td><input type="checkbox" class="seats" value="C3"></td>
+                    <td><input type="checkbox" class="seats" value="C4"></td>
+                    <td><input type="checkbox" class="seats" value="C5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="C6"></td>
+                    <td><input type="checkbox" class="seats" value="C7"></td>
+                    <td><input type="checkbox" class="seats" value="C8"></td>
+                    <td><input type="checkbox" class="seats" value="C9"></td>
+                    <td><input type="checkbox" class="seats" value="C10"></td>
+                    <td><input type="checkbox" class="seats" value="C11"></td>
+                    <td><input type="checkbox" class="seats" value="C12"></td>
+                </tr>
+
+                <tr>
+                    <td>D</td>
+                    <td><input type="checkbox" class="seats" value="D1"></td>
+                    <td><input type="checkbox" class="seats" value="D2"></td>
+                    <td><input type="checkbox" class="seats" value="D3"></td>
+                    <td><input type="checkbox" class="seats" value="D4"></td>
+                    <td><input type="checkbox" class="seats" value="D5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="D6"></td>
+                    <td><input type="checkbox" class="seats" value="D7"></td>
+                    <td><input type="checkbox" class="seats" value="D8"></td>
+                    <td><input type="checkbox" class="seats" value="D9"></td>
+                    <td><input type="checkbox" class="seats" value="D10"></td>
+                    <td><input type="checkbox" class="seats" value="D11"></td>
+                    <td><input type="checkbox" class="seats" value="D12"></td>
+                </tr>
+
+                <tr>
+                    <td>E</td>
+                    <td><input type="checkbox" class="seats" value="E1"></td>
+                    <td><input type="checkbox" class="seats" value="E2"></td>
+                    <td><input type="checkbox" class="seats" value="E3"></td>
+                    <td><input type="checkbox" class="seats" value="E4"></td>
+                    <td><input type="checkbox" class="seats" value="E5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="E6"></td>
+                    <td><input type="checkbox" class="seats" value="E7"></td>
+                    <td><input type="checkbox" class="seats" value="E8"></td>
+                    <td><input type="checkbox" class="seats" value="E9"></td>
+                    <td><input type="checkbox" class="seats" value="E10"></td>
+                    <td><input type="checkbox" class="seats" value="E11"></td>
+                    <td><input type="checkbox" class="seats" value="E12"></td>
+                </tr>
+
+                <tr class="seatVGap"></tr>
+
+                <tr>
+                    <td>F</td>
+                    <td><input type="checkbox" class="seats" value="F1"></td>
+                    <td><input type="checkbox" class="seats" value="F2"></td>
+                    <td><input type="checkbox" class="seats" value="F3"></td>
+                    <td><input type="checkbox" class="seats" value="F4"></td>
+                    <td><input type="checkbox" class="seats" value="F5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="F6"></td>
+                    <td><input type="checkbox" class="seats" value="F7"></td>
+                    <td><input type="checkbox" class="seats" value="F8"></td>
+                    <td><input type="checkbox" class="seats" value="F9"></td>
+                    <td><input type="checkbox" class="seats" value="F10"></td>
+                    <td><input type="checkbox" class="seats" value="F11"></td>
+                    <td><input type="checkbox" class="seats" value="F12"></td>
+                </tr>
+
+                <tr>
+                    <td>G</td>
+                    <td><input type="checkbox" class="seats" value="G1"></td>
+                    <td><input type="checkbox" class="seats" value="G2"></td>
+                    <td><input type="checkbox" class="seats" value="G3"></td>
+                    <td><input type="checkbox" class="seats" value="G4"></td>
+                    <td><input type="checkbox" class="seats" value="G5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="G6"></td>
+                    <td><input type="checkbox" class="seats" value="G7"></td>
+                    <td><input type="checkbox" class="seats" value="G8"></td>
+                    <td><input type="checkbox" class="seats" value="G9"></td>
+                    <td><input type="checkbox" class="seats" value="G10"></td>
+                    <td><input type="checkbox" class="seats" value="G11"></td>
+                    <td><input type="checkbox" class="seats" value="G12"></td>
+                </tr>
+
+                <tr>
+                    <td>H</td>
+                    <td><input type="checkbox" class="seats" value="H1"></td>
+                    <td><input type="checkbox" class="seats" value="H2"></td>
+                    <td><input type="checkbox" class="seats" value="H3"></td>
+                    <td><input type="checkbox" class="seats" value="H4"></td>
+                    <td><input type="checkbox" class="seats" value="H5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="H6"></td>
+                    <td><input type="checkbox" class="seats" value="H7"></td>
+                    <td><input type="checkbox" class="seats" value="H8"></td>
+                    <td><input type="checkbox" class="seats" value="H9"></td>
+                    <td><input type="checkbox" class="seats" value="H10"></td>
+                    <td><input type="checkbox" class="seats" value="H11"></td>
+                    <td><input type="checkbox" class="seats" value="H12"></td>
+                </tr>
+
+                <tr>
+                    <td>I</td>
+                    <td><input type="checkbox" class="seats" value="I1"></td>
+                    <td><input type="checkbox" class="seats" value="I2"></td>
+                    <td><input type="checkbox" class="seats" value="I3"></td>
+                    <td><input type="checkbox" class="seats" value="I4"></td>
+                    <td><input type="checkbox" class="seats" value="I5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="I6"></td>
+                    <td><input type="checkbox" class="seats" value="I7"></td>
+                    <td><input type="checkbox" class="seats" value="I8"></td>
+                    <td><input type="checkbox" class="seats" value="I9"></td>
+                    <td><input type="checkbox" class="seats" value="I10"></td>
+                    <td><input type="checkbox" class="seats" value="I11"></td>
+                    <td><input type="checkbox" class="seats" value="I12"></td>
+                </tr>
+
+                <tr>
+                    <td>J</td>
+                    <td><input type="checkbox" class="seats" value="J1"></td>
+                    <td><input type="checkbox" class="seats" value="J2"></td>
+                    <td><input type="checkbox" class="seats" value="J3"></td>
+                    <td><input type="checkbox" class="seats" value="J4"></td>
+                    <td><input type="checkbox" class="seats" value="J5"></td>
+                    <td></td>
+                    <td><input type="checkbox" class="seats" value="J6"></td>
+                    <td><input type="checkbox" class="seats" value="J7"></td>
+                    <td><input type="checkbox" class="seats" value="J8"></td>
+                    <td><input type="checkbox" class="seats" value="J9"></td>
+                    <td><input type="checkbox" class="seats" value="J10"></td>
+                    <td><input type="checkbox" class="seats" value="J11"></td>
+                    <td><input type="checkbox" class="seats" value="J12"></td>
+                </tr>
+
+
+            </table>
+
+            <br />
+            
+            <button id="confirm-selection" style="pointer-events:none;" onclick="updateTextArea()">Confirm Selection</button>
+        </center>
+    </div>
+
+    <br /><br />
+
+    <div class="displayerBoxes">
+        <center>
+            <table class="Displaytable">
+                <tr>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Name</th>
+                    <th>Number of Seats</th>
+                    <th>Ticket Cost</th>
+                    <th>Seats</th>
+                    <th>Movie Date & Time</th>
+                </tr>
+                <tr>
+                    <td><textarea class="display-area" id="emailDisplay"></textarea></td>
+                    <td><textarea class="display-area" id="mobileDisplay"></textarea></td>
+                    <td><textarea class="display-area" id="nameDisplay"></textarea></td>
+                    <td><textarea class="display-area" id="NumberDisplay"></textarea></td>
+                    <td><textarea class="display-area" id="ticketCost"></textarea></td>
+                    <td><textarea class="display-area" id="seatsDisplay"></textarea></td>
+                    <td><textarea class="display-area"id="movieDateAndTime"></textarea></td>
+                </tr>
+            </table>
+        </center>
+    </div>
+
+    <div class="payment" style="display:none;">
+     <a href="" class="payment-button" href=""><span >MAKE PAYMENT</span></a>
+    </div>
+
+
+    <script>
+        window.onload = () => {
+            $("#seatsBlock").css('pointer-events', 'none')
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+
+            if (params.movie) {
+                document.getElementById('movie').innerText = params.movie
+            }
+
+            if (params.city) {
+                document.getElementById('city').innerText = params.city
+            }
+
+            if (params.theater) {
+                document.getElementById('theater').innerText = `(${params.theater})`
+            }
+
+            $(document).ready(function() {
+            $(document).on('submit', '#formElement', function() {
+            // do your things
+            return false;
+             });
+            });
+        }
+
+        function onLoaderFunc() {
+            $(".seatStructure *").prop("disabled", true);
+            $(".displayerBoxes *").prop("disabled", true);
+        }
+
+        function takeData() {
+          
+            if (checkNumSeats() && checkMobileNumber() && checkUserName() && checkEmail() ) {
+                $("#seatsBlock").css('pointer-events', 'auto')
+                $(".inputForm *").prop("disabled", true);
+                $(".seatStructure *").prop("disabled", false);
+                document.getElementById("notification").innerHTML =
+                    "<b style='margin-bottom:0px;background:yellow;'>Please Select your Seats NOW!</b>";
+
+                    $("#confirm-selection").css('pointer-events', 'auto')
+                
+            } else{
+                alert("Please Enter Correct Details ");
+            }
+        }
+
+        function checkNumSeats(){
+           $("#Numseats").val().replace(/[ `a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g, "")
+            if($("#Numseats").val().length > 0 && $("#Numseats").val() > 0 &&  $("#Numseats").val() <= 120 ){
+               console.log(true)
+                return true
+            }else{
+                // console.log("hello not")
+                console.log(false)
+                return false
+            }
+        }
+
+        function checkUserName(){
+            var format = /[ `0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            // console.log(!format.test($("#Username").val()))
+            // console.log($("#Username").val().length)
+            if($("#Username").val().length > 0 && !format.test($("#Username").val())){
+                return true
+                // console.log("1hello")
+            }else{
+                // console.log("1hellonot")
+                return false
+            }
+        }
+
+        function checkEmail() {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if ($("#email").val().match(mailformat)) {
+                    // alert("Valid email address!");
+                    // document.form1.text1.focus();
+                    return true;
+                } else {
+                    // alert("You have entered an invalid email address!");
+                    // document.form1.text1.focus();
+                    return false;
+                }
+            
+        }
+
+        function checkMobileNumber(){
+            // console.log($('#phone').val())
+            // console.log(/^\d+$/.test($('#phone').val()) , "check num")
+            // console.log($('#phone').val().length , "length")
+
+            if( /^\d+$/.test($('#phone').val()) && $('#phone').val().length == 10){
+                return true
+            }else{
+                alert('invalid Number')
+                return false
+            }
+        }
+
+
+        function updateTextArea() {
+            console.log($("input:checked").length)
+
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(".seatStructure *").prop("disabled", true);
+                
+                var allNameVals = [];
+                var allNumberVals = [];
+                var allSeatsVals = [];
+               
+
+                //Storing in Array
+                allNameVals.push($("#Username").val());
+                allNumberVals.push($("#Numseats").val());
+                $('#seatsBlock :checked').each(function () {
+                    allSeatsVals.push($(this).val());
+                });
+
+                //for Email and mobile Number
+                 let email =  $('#email').val()
+                let mobileNumber = $('#phone').val()
+
+                //to get query params
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+
+          let city = params.city
+          let movie = params.movie
+          let theater = params.theater
+          let movieDateAndTime = params.movieDateAndTime
+          let ticketCost = `500 * ${$("input:checked").length} = ${500 * $("input:checked").length}`
+
+                //Displaying 
+                $('#nameDisplay').val(allNameVals);
+                // console.log("allNumberVals" , allNumberVals )
+                $('#NumberDisplay').val(allNumberVals);
+                $('#seatsDisplay').val(allSeatsVals);
+                $('#emailDisplay').val(email)
+                $('#mobileDisplay').val(mobileNumber)
+                $('#movieDateAndTime').val(params.movieDateAndTime)
+                $('#ticketCost').val(ticketCost)
+
+            //Desplaying and setting href for Payment Element
+
+                let paymentDiv = document.querySelectorAll('.payment')[0]
+                paymentDiv.style.display='block'
+                paymentDiv.getElementsByTagName('a')[0].setAttribute("href" , `/payment.html?city=${city}&movie=${movie}&theater=${theater}&movieDateAndTime=${movieDateAndTime}&email=${email}&mobileNumber=${mobileNumber}&allSeatsVals=${allSeatsVals}&ticketCost=${ticketCost}&name=${allNameVals}`)
+            } else {
+                alert("Please select " + ($("#Numseats").val()) + " seats")
+            }
+        }
+
+
+        function myFunction() {
+            alert($("input:checked").length);
+        }
+
+        /*
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        */
+
+
+        $(":checkbox").click(function () {
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(":checkbox").prop('disabled', true);
+                $(':checked').prop('disabled', false);
+            } else {
+                $(":checkbox").prop('disabled', false);
+            }
+        });
+    </script>
+</body>

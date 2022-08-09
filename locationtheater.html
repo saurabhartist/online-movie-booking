@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="timepass.css">
+    <script src="jquery-3.6.0.min.js"></script>
+</head> 
+<body>
+
+
+    <div id="container">
+    <label class="container-lable" id="mumbai" onclick="myFunction('mumbai')">Mumbai
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <label class="container-lable"  id="thane" onclick="myFunction('thane')">Thane
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <label class="container-lable" id="pune" onclick="myFunction('pune')">Pune
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <a href="#" id="url1" class="mumbai city" style="display: none;">Anand Theater</a>
+     
+      <a href="#" id="url2" class="mumbai city" style="display: none;">Ashok Theater</a>
+
+      <a href="#" id="url3" class="thane city" style="display: none;">Sapna Theater</a>
+   
+      <a href="#" id="url4" class="pune city" style="display: none;">Big chinemas</a>
+
+      <a href="#" id="url5" class="pune city" style="display: none;">inox Movies</a>
+ 
+      <a href="#" id="url6" class="thane city" style="display: none;">City Theater</a>
+      
+    </div>
+      <script type="text/javascript">
+
+
+    function myFunction(city){
+       
+        var lableArr = document.querySelectorAll('.container-lable')
+        lableArr.forEach((element)=>{
+           if(element.id == city){
+            element.style.pointerEvents = 'none'
+           }else{
+            element.style.pointerEvents = 'auto'
+            element.getElementsByTagName('input')[0].checked=false
+           
+           }
+        })
+
+        var cityArr = document.querySelectorAll('.city')
+        cityArr.forEach((element , index) => {
+            if(element.classList.contains(city)){
+                element.style.display='block'
+            }else{
+               
+                element.style.display="none"
+            }
+        });
+        }
+
+
+
+</script>
+    </script>
+</body>
+</html>

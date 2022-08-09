@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $('input[type="checkbox"]').on('change', function() {
+   $('input[type="checkbox"]').not(this).prop('checked', false);
+});
+        </script>
+</head> 
+<body>
+    <div id="container">
+    <label class="container">Mumbai
+        <input id="Mumbai" type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+      </label>
+      
+      <label class="container">Thane
+        <input id="Thane" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <label class="container">Pune
+        <input id="Pune" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <a href="#" id="url1" style="display: none;">Anand Theater</a>
+      <br>
+      <a href="#" id="url2" style="display: none;">Ashok Theater</a>
+      <br>
+      <a href="#" id="url3" style="display: none;">Sapna Theater</a>
+      <br>
+      <a href="#" id="url4" style="display: none;">Big chinemas</a>
+      <br>
+      <a href="#" id="url5" style="display: none;">inox Movies</a>
+      <br>
+      <a href="#" id="url6" style="display: none;">City Theater</a>
+      
+    </div>
+      <script type="text/javascript">
+
+        //listen to the click event on the whole container
+        document.getElementById("container").onclick = function (e) {
+    
+            //check every box if it's checked
+            if (document.getElementById('Mumbai')) {
+                document.getElementById('url1').style.display = 'block';
+                document.getElementById('url2').style.display = 'block';
+                
+            } else {
+                document.getElementById('url1').style.display = 'none';
+                document.getElementById('url2').style.display = 'none';
+                
+            
+            }
+    
+            if (document.getElementById('Pune')) {
+                document.getElementById('url4').style.display = 'block';
+                document.getElementById('url5').style.display = 'block';
+               
+            } else {
+                document.getElementById('url4').style.display = 'none';
+                document.getElementById('url5').style.display = 'none';
+                
+                
+            }
+
+            if (document.getElementById('Thane')) {
+                document.getElementById('url3').style.display = 'block';
+                document.getElementById('url6').style.display = 'block';
+                
+            } else {
+                document.getElementById('url3').style.display = 'none';
+                document.getElementById('url6').style.display = 'none';
+                
+           }
+    
+    
+        }
+
+    window.onload = function () {
+        var cities = document.getElementById("container");
+        var cityName = cities.getElementsByTagName("INPUT");
+        for (var i = 0; i < cityName.length; i++) {
+            cityName[i].onclick = function () {
+                for (var i = 0; i < cityName.length; i++) {
+                    if (cityName[i] != this && this.checked) {
+                        cityName[i].checked = false;
+                    }
+                }
+            };
+        }
+    };
+</script>
+    </script>
+</body>
+</html>

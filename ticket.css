@@ -1,0 +1,11 @@
+body{
+    background-image: url(ticket.png);
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-size: 800px;
+}
+
+.receipt{
+    width: 150px;
+    height: 600px;
+}

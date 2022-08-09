@@ -1,0 +1,76 @@
+body{
+    background-image: url(seat.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+  .movie-img{
+      display: inline-block;
+      
+  }
+
+  .movie-name{
+        
+        display: inline-block;
+        
+        position: absolute;
+      
+  }
+    #movie-name h1{
+    color: white;
+    
+}
+
+.city{
+    /* margin-top: 32px; */
+    padding: 9px;
+    color: yellow;
+    text-decoration: none;
+    display: block;
+}
+
+.container-lable{
+    margin-right: 15px;
+    pointer-events: auto;
+}
+
+.theaters{
+    margin-top: 32px;
+    border: solid;
+    width: 592px;
+}
+
+
+.container{
+    width: 487px;
+
+}
+
+  .new-html{
+      color: white;
+      display: inline-flex;
+      font-size: 26px;
+      position: absolute;
+      top: 180px; left: 500px;
+  }
+/* 
+  #container{
+  position: absolute;
+  text-align: center;
+  margin-left: 39%;
+  } */
+
+
+  #movie{
+   /* text-align: center;
+  margin-right: 30%;    */
+  }
+
+  #movie-name{
+  position: absolute;
+  text-align: center;
+  margin-left: 35%;
+  font-size: -webkit-xxx-large;
+  /* margin-top: 110px; */
+  }

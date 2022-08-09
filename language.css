@@ -1,0 +1,50 @@
+body{
+    background-image: url(startbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.head{
+    display: inline-block;
+    background-color: black;
+    width: -webkit-fill-available;;
+}
+
+.contact{
+    color: white;
+    display: inline-block;
+    position: absolute;
+top: 10px; left: 1130px;
+background-color: red;
+width: 210px;
+border-radius: 10px 100px / 120px;
+text-align: center;
+
+}
+.select{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 512px;
+    margin-right: 512px;
+    background-color: rgb(179, 84, 84);
+}
+
+.bollywood{
+margin-left: 230px;
+margin-right: 134.5px;
+margin-top: 50px;
+display: inline-block;
+opacity: 0.9;
+}
+
+.hollywood{
+   margin-left: 134.5px;
+   margin-right: 230px;
+   margin-top: 50px;
+   display: inline-block;
+   opacity: 0.9;
+}

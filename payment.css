@@ -1,0 +1,88 @@
+html{
+    text-align: center;
+}
+
+
+table{
+    margin-right: 1%;
+}
+
+
+.upi-payment{
+    margin-left: 19%;
+    margin-top: 4%;
+    position: absolute;
+
+    
+}
+
+.cv-cards{
+    position: absolute;
+    /* width: 731px; */
+    margin-top: 4%;
+    margin-left: 22%;
+}
+
+#customers{
+    position: absolute;
+    margin-top: 5%;
+}
+
+.card-item{
+    height: 20px;
+    width: 251px;
+    margin: 10px;
+}
+
+#cards{
+    /* border-style: ridge; */
+    border: 1px solid gray;
+}
+.upi-pay{
+    border: 1px solid gray;
+}
+
+.__name{
+    margin-top: 16px;
+    margin-bottom: 10px;
+
+}
+
+.card-item-expiry{
+    width: 43px;
+    height: 15px
+}
+
+.card-item-cvv{
+    width: 55px;
+}
+
+#upi-id{
+    width: 309px;
+    height: 26px;
+    margin: 6px;
+}
+
+#enter-upi{
+    margin-left: 186%;
+    margin-top: -35%;
+    position: absolute;
+}
+
+.details-submit-btn{
+    padding: 14px 40px;
+    background-color: #dddddd;
+    /* background-color: darkorange; */
+}
+
+#upi-submit{
+    position:absolute;
+    margin-top: 356px;
+    margin-left: 353px;
+}
+
+#card-submit{
+    position:absolute;
+    margin-top: 356px;
+    margin-left: 353px;
+}
